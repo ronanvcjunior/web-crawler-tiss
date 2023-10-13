@@ -10,31 +10,49 @@ class JsoupUtils {
         this.document = document
     }
 
+    String buscarElemento(String selector, String attribute) {
+        String resultado = null
+        Elements element = document.select(selector)
 
-    List<String> findElements(String selector, String attribute) {
-        List<String> results = []
-        Elements elements = document.select(selector)
+        if (element && element.hasAttr(attribute))
+            resultado = element.attr(attribute)
 
-        if (elements) {
-            elements.each { element ->
-                results.add(element.attr(attribute))
-            }
-        }
-
-        return results
+        return resultado
     }
 
+    String buscarElemento(String selector) {
+        String resultado = null
+        Elements element = document.select(selector)
 
-    List<String> findElements(String selector) {
-        List<String> results = []
+        if (element)
+            resultado = element.text()
+
+        return resultado
+    }
+
+    List<String> buscarElementos(String selector, String attribute) {
+        List<String> resultados = []
         Elements elements = document.select(selector)
 
         if (elements) {
             elements.each { element ->
-                results.add(element.text())
+                resultados.add(element.attr(attribute))
             }
         }
 
-        return results
+        return resultados
+    }
+
+    List<String> buscarElementos(String selector) {
+        List<String> resultados = []
+        Elements elements = document.select(selector)
+
+        if (elements) {
+            elements.each { element ->
+                resultados.add(element.text())
+            }
+        }
+
+        return resultados
     }
 }
