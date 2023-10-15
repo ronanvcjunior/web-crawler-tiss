@@ -40,7 +40,9 @@ class TissUltimaVersaoCrawler {
 
             arquivosPadraoTiss.eachWithIndex{ String arquivo, int i ->
                 String nomeArquivo = arquivo.split("/").last()
-                String nomePastaArquivo = nomesArquivosPadraoTiss[i].trim().replace(" ", "_")
+                String nomePastaArquivo = nomesArquivosPadraoTiss[i]
+                        .trim()
+                        .replaceAll(/[\\\/:*?"<>|\s]/, "_")
                 String caminho = "./downloads/${tituloPagina}/${nomePastaArquivo}/${nomeArquivo}"
 
                 FileOutputStream outputStream = fileUtils.getOutputStreamForFile(caminho)
