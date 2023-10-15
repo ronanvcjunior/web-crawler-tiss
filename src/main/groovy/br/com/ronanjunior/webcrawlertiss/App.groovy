@@ -11,17 +11,5 @@ class App {
         GovCrawler govCrawler = new GovCrawler(baseUrl, "text/html")
 
         govCrawler.iniciar()
-
-        HttpUtils httpUtils = new HttpUtils("", "text/html")
-        def filePath = './downloads/PadroTISSComunicao202301.zip'
-        def outputStream = FileUtils.getOutputStreamForFile(filePath)
-        boolean success = httpUtils.downloadFile('https://www.gov.br/ans/pt-br/assuntos/prestadores/padrao-para-troca-de-informacao-de-saude-suplementar-2013-tiss/PadroTISSComunicao202301.zip', outputStream)
-
-        if (success) {
-            println "Download bem-sucedido!"
-        } else {
-            println "Falha no download."
-        }
-
     }
 }

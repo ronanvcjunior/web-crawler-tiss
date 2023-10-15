@@ -50,12 +50,8 @@ class GovCrawler {
                     String linkTissTabelasRelacionadas = paginaTissParser
                             .buscarElemento("#parent-fieldname-text > p:nth-child(8) > a", "href")
 
-                    println linkTissUltimaVersao
-
-                    println linkTissHitorico
-
-                    println linkTissTabelasRelacionadas
-
+                    TissUltimaVersaoCrawler tissUltimaVersaoCrawler = new TissUltimaVersaoCrawler(linkTissUltimaVersao, "text/html")
+                    tissUltimaVersaoCrawler.iniciar()
                 } else {
                     println "Falha ao obter o documento HTML."
                 }

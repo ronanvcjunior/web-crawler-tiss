@@ -1,7 +1,7 @@
 package br.com.ronanjunior.webcrawlertiss.utils
 
 class FileUtils {
-    static FileOutputStream getOutputStreamForFile(String filePath) {
+    FileOutputStream getOutputStreamForFile(String filePath) {
         try {
             def file = new File(filePath)
             def parentDirectory = file.parentFile
