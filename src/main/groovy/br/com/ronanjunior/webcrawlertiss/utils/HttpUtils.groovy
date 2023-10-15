@@ -1,6 +1,7 @@
 package br.com.ronanjunior.webcrawlertiss.utils
 
 import groovyx.net.http.HttpBuilder
+import groovyx.net.http.optional.Download
 import org.jsoup.nodes.Document
 
 class HttpUtils {
@@ -26,6 +27,20 @@ class HttpUtils {
             println "Erro ao acessar a página: ${e.message}"
 
             return response
+        }
+    }
+
+    boolean downloadFile(String fileUrl, OutputStream destinationPath) {
+        try {
+            HttpBuilder.configure {
+                request.uri = fileUrl
+            }.get {
+                Download.toStream(delegate, destinationPath)
+            }
+            return true
+        } catch (Exception e) {
+            println "Erro ao baixar o arquivo: ${e.message}"
+            return false
         }
     }
 }
