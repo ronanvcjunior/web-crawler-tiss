@@ -47,7 +47,7 @@ class TissTabelasRelacionadasCrawler {
                     .downloadFile(arquivoPadraoTiss, outputStream)
 
             if (downloadBemSucedido) {
-                println "Download do arquivo (${nomeArquivo}) foi bem-sucedido do arquivo!"
+                println "Download do arquivo (${nomeArquivo}) foi bem-sucedido!"
             } else {
                 println "Falha no download do arquivo (${nomeArquivo})."
             }
