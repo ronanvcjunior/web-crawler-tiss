@@ -55,6 +55,9 @@ class GovCrawler {
 
                     TissTabelasRelacionadasCrawler tabelasRelacionadasCrawler = new TissTabelasRelacionadasCrawler(linkTissTabelasRelacionadas, "text/html")
                     tabelasRelacionadasCrawler.iniciar()
+
+                    TissHitoricoCrawler tissHitoricoCrawler = new TissHitoricoCrawler(linkTissHitorico, "text/html")
+                    tissHitoricoCrawler.iniciar()
                 } else {
                     println "Falha ao obter o documento HTML."
                 }
