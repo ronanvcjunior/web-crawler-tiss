@@ -50,11 +50,11 @@ class GovCrawler {
                     String linkTissTabelasRelacionadas = paginaTissParser
                             .buscarElemento("#parent-fieldname-text > p:nth-child(8) > a", "href")
 
-                    TissUltimaVersaoCrawler tissUltimaVersaoCrawler = new TissUltimaVersaoCrawler(linkTissUltimaVersao, "text/html")
-                    tissUltimaVersaoCrawler.iniciar()
-
-                    TissTabelasRelacionadasCrawler tabelasRelacionadasCrawler = new TissTabelasRelacionadasCrawler(linkTissTabelasRelacionadas, "text/html")
-                    tabelasRelacionadasCrawler.iniciar()
+//                    TissUltimaVersaoCrawler tissUltimaVersaoCrawler = new TissUltimaVersaoCrawler(linkTissUltimaVersao, "text/html")
+//                    tissUltimaVersaoCrawler.iniciar()
+//
+//                    TissTabelasRelacionadasCrawler tabelasRelacionadasCrawler = new TissTabelasRelacionadasCrawler(linkTissTabelasRelacionadas, "text/html")
+//                    tabelasRelacionadasCrawler.iniciar()
 
                     TissHistoricoCrawler tissHitoricoCrawler = new TissHistoricoCrawler(linkTissHistorico, "text/html")
                     tissHitoricoCrawler.iniciar()

@@ -28,7 +28,7 @@ class TissHistoricoCrawler {
                     .replaceAll(/[\\\/:*?"<>|\s]/, "_")
 
             List<String> cabecalho = paginaTissTissHitoricoParser
-                    .buscarElementos("#parent-fieldname-text > table > thead > tr > th")
+                    .buscarElementos("#parent-fieldname-text > table > thead > tr > th:lt(3)")
 
             String nomeArquivo = tituloPagina.split("/").last()
             String caminho = "./downloads/${tituloPagina}/${nomeArquivo}.csv"
@@ -40,7 +40,7 @@ class TissHistoricoCrawler {
                 Integer numLinha = 1;
                 do {
                     List<String> linha = paginaTissTissHitoricoParser
-                            .buscarElementos("#parent-fieldname-text > table > tbody > tr:nth-child(${numLinha++}) > td")
+                            .buscarElementos("#parent-fieldname-text > table > tbody > tr:nth-child(${numLinha++}) > td:lt(3)")
                     if (!linha || linha[0].toUpperCase() == "Jan/2016".toUpperCase())
                         break
 
